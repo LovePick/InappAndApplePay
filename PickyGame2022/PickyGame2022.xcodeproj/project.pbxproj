@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C11C6C7027FEF22A008ADCDC /* PickyGame2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11C6C6F27FEF22A008ADCDC /* PickyGame2022App.swift */; };
+		C11C6C7227FEF22A008ADCDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11C6C7127FEF22A008ADCDC /* ContentView.swift */; };
+		C11C6C7427FEF22B008ADCDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C11C6C7327FEF22B008ADCDC /* Assets.xcassets */; };
+		C11C6C7727FEF22B008ADCDC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C11C6C7627FEF22B008ADCDC /* Preview Assets.xcassets */; };
+		C11C6C7E27FEF27F008ADCDC /* InappView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11C6C7D27FEF27F008ADCDC /* InappView.swift */; };
+		C11C6C8427FEFF36008ADCDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11C6C8327FEFF36008ADCDC /* AppDelegate.swift */; };
+		C11C6C8827FF03ED008ADCDC /* InappViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11C6C8727FF03ED008ADCDC /* InappViewModel.swift */; };
+		C11C6C8A27FF0896008ADCDC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11C6C8927FF0896008ADCDC /* LoadingView.swift */; };
+		C11C6C8C27FF08D8008ADCDC /* BlurBGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11C6C8B27FF08D8008ADCDC /* BlurBGView.swift */; };
+		C19741602802E487004FF30A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C197415F2802E487004FF30A /* StoreKit.framework */; };
+		C19741632802E578004FF30A /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19741622802E578004FF30A /* IAPHelper.swift */; };
+		C19741652802E6B4004FF30A /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19741642802E6B4004FF30A /* IAPProducts.swift */; };
+		C19741672802EC66004FF30A /* UserIAPData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19741662802EC66004FF30A /* UserIAPData.swift */; };
+		C197416A28030B44004FF30A /* InappCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197416928030B44004FF30A /* InappCell.swift */; };
+		C1C8D93128213C18005CCE62 /* ApplePayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C8D93028213C18005CCE62 /* ApplePayView.swift */; };
+		C1C8D93328213C96005CCE62 /* ApplePayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C8D93228213C96005CCE62 /* ApplePayViewModel.swift */; };
+		C1C8D9362821407C005CCE62 /* ApplePayProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C8D9352821407C005CCE62 /* ApplePayProductCell.swift */; };
+		C1C8D938282140D6005CCE62 /* ApplePayProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C8D937282140D6005CCE62 /* ApplePayProduct.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C11C6C6C27FEF22A008ADCDC /* PickyGame2022.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickyGame2022.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C11C6C6F27FEF22A008ADCDC /* PickyGame2022App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickyGame2022App.swift; sourceTree = "<group>"; };
+		C11C6C7127FEF22A008ADCDC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C11C6C7327FEF22B008ADCDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C11C6C7627FEF22B008ADCDC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C11C6C7D27FEF27F008ADCDC /* InappView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InappView.swift; sourceTree = "<group>"; };
+		C11C6C8327FEFF36008ADCDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C11C6C8727FF03ED008ADCDC /* InappViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InappViewModel.swift; sourceTree = "<group>"; };
+		C11C6C8927FF0896008ADCDC /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		C11C6C8B27FF08D8008ADCDC /* BlurBGView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBGView.swift; sourceTree = "<group>"; };
+		C197415F2802E487004FF30A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C19741622802E578004FF30A /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
+		C19741642802E6B4004FF30A /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
+		C19741662802EC66004FF30A /* UserIAPData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIAPData.swift; sourceTree = "<group>"; };
+		C197416928030B44004FF30A /* InappCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InappCell.swift; sourceTree = "<group>"; };
+		C1C8D92E282127DC005CCE62 /* PickyGame2022Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PickyGame2022Release.entitlements; sourceTree = "<group>"; };
+		C1C8D93028213C18005CCE62 /* ApplePayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayView.swift; sourceTree = "<group>"; };
+		C1C8D93228213C96005CCE62 /* ApplePayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayViewModel.swift; sourceTree = "<group>"; };
+		C1C8D9352821407C005CCE62 /* ApplePayProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayProductCell.swift; sourceTree = "<group>"; };
+		C1C8D937282140D6005CCE62 /* ApplePayProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayProduct.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C11C6C6927FEF22A008ADCDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C19741602802E487004FF30A /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C11C6C6327FEF22A008ADCDC = {
+			isa = PBXGroup;
+			children = (
+				C11C6C6E27FEF22A008ADCDC /* PickyGame2022 */,
+				C11C6C6D27FEF22A008ADCDC /* Products */,
+				C197415E2802E487004FF30A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C11C6C6D27FEF22A008ADCDC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C11C6C6C27FEF22A008ADCDC /* PickyGame2022.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C11C6C6E27FEF22A008ADCDC /* PickyGame2022 */ = {
+			isa = PBXGroup;
+			children = (
+				C1C8D92E282127DC005CCE62 /* PickyGame2022Release.entitlements */,
+				C19741612802E4F6004FF30A /* IAP Classes */,
+				C1C8D92F28213AE4005CCE62 /* InappView */,
+				C11C6C8327FEFF36008ADCDC /* AppDelegate.swift */,
+				C11C6C6F27FEF22A008ADCDC /* PickyGame2022App.swift */,
+				C11C6C7127FEF22A008ADCDC /* ContentView.swift */,
+				C11C6C8927FF0896008ADCDC /* LoadingView.swift */,
+				C11C6C8B27FF08D8008ADCDC /* BlurBGView.swift */,
+				C1C8D93428213D20005CCE62 /* ApplePay */,
+				C11C6C7327FEF22B008ADCDC /* Assets.xcassets */,
+				C11C6C7527FEF22B008ADCDC /* Preview Content */,
+			);
+			path = PickyGame2022;
+			sourceTree = "<group>";
+		};
+		C11C6C7527FEF22B008ADCDC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C11C6C7627FEF22B008ADCDC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C197415E2802E487004FF30A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C197415F2802E487004FF30A /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C19741612802E4F6004FF30A /* IAP Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C19741622802E578004FF30A /* IAPHelper.swift */,
+				C19741642802E6B4004FF30A /* IAPProducts.swift */,
+			);
+			path = "IAP Classes";
+			sourceTree = "<group>";
+		};
+		C1C8D92F28213AE4005CCE62 /* InappView */ = {
+			isa = PBXGroup;
+			children = (
+				C19741662802EC66004FF30A /* UserIAPData.swift */,
+				C11C6C7D27FEF27F008ADCDC /* InappView.swift */,
+				C197416928030B44004FF30A /* InappCell.swift */,
+				C11C6C8727FF03ED008ADCDC /* InappViewModel.swift */,
+			);
+			path = InappView;
+			sourceTree = "<group>";
+		};
+		C1C8D93428213D20005CCE62 /* ApplePay */ = {
+			isa = PBXGroup;
+			children = (
+				C1C8D937282140D6005CCE62 /* ApplePayProduct.swift */,
+				C1C8D93028213C18005CCE62 /* ApplePayView.swift */,
+				C1C8D93228213C96005CCE62 /* ApplePayViewModel.swift */,
+				C1C8D9352821407C005CCE62 /* ApplePayProductCell.swift */,
+			);
+			path = ApplePay;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C11C6C6B27FEF22A008ADCDC /* PickyGame2022 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C11C6C7A27FEF22B008ADCDC /* Build configuration list for PBXNativeTarget "PickyGame2022" */;
+			buildPhases = (
+				C11C6C6827FEF22A008ADCDC /* Sources */,
+				C11C6C6927FEF22A008ADCDC /* Frameworks */,
+				C11C6C6A27FEF22A008ADCDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PickyGame2022;
+			productName = PickyGame2022;
+			productReference = C11C6C6C27FEF22A008ADCDC /* PickyGame2022.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C11C6C6427FEF22A008ADCDC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					C11C6C6B27FEF22A008ADCDC = {
+						CreatedOnToolsVersion = 13.3;
+					};
+				};
+			};
+			buildConfigurationList = C11C6C6727FEF22A008ADCDC /* Build configuration list for PBXProject "PickyGame2022" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C11C6C6327FEF22A008ADCDC;
+			productRefGroup = C11C6C6D27FEF22A008ADCDC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C11C6C6B27FEF22A008ADCDC /* PickyGame2022 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C11C6C6A27FEF22A008ADCDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C11C6C7727FEF22B008ADCDC /* Preview Assets.xcassets in Resources */,
+				C11C6C7427FEF22B008ADCDC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C11C6C6827FEF22A008ADCDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1C8D93128213C18005CCE62 /* ApplePayView.swift in Sources */,
+				C19741672802EC66004FF30A /* UserIAPData.swift in Sources */,
+				C1C8D938282140D6005CCE62 /* ApplePayProduct.swift in Sources */,
+				C19741632802E578004FF30A /* IAPHelper.swift in Sources */,
+				C11C6C8C27FF08D8008ADCDC /* BlurBGView.swift in Sources */,
+				C11C6C8427FEFF36008ADCDC /* AppDelegate.swift in Sources */,
+				C11C6C8827FF03ED008ADCDC /* InappViewModel.swift in Sources */,
+				C11C6C7227FEF22A008ADCDC /* ContentView.swift in Sources */,
+				C1C8D93328213C96005CCE62 /* ApplePayViewModel.swift in Sources */,
+				C11C6C7027FEF22A008ADCDC /* PickyGame2022App.swift in Sources */,
+				C11C6C7E27FEF27F008ADCDC /* InappView.swift in Sources */,
+				C19741652802E6B4004FF30A /* IAPProducts.swift in Sources */,
+				C197416A28030B44004FF30A /* InappCell.swift in Sources */,
+				C11C6C8A27FF0896008ADCDC /* LoadingView.swift in Sources */,
+				C1C8D9362821407C005CCE62 /* ApplePayProductCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C11C6C7827FEF22B008ADCDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C11C6C7927FEF22B008ADCDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C11C6C7B27FEF22B008ADCDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PickyGame2022/Preview Content\"";
+				DEVELOPMENT_TEAM = 4836KR52L9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pucknavingame.PickyGame2022;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Game2022Dev;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C11C6C7C27FEF22B008ADCDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PickyGame2022/PickyGame2022Release.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PickyGame2022/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pucknavingame.PickyGame2022;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C11C6C6727FEF22A008ADCDC /* Build configuration list for PBXProject "PickyGame2022" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C11C6C7827FEF22B008ADCDC /* Debug */,
+				C11C6C7927FEF22B008ADCDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C11C6C7A27FEF22B008ADCDC /* Build configuration list for PBXNativeTarget "PickyGame2022" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C11C6C7B27FEF22B008ADCDC /* Debug */,
+				C11C6C7C27FEF22B008ADCDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C11C6C6427FEF22A008ADCDC /* Project object */;
+}
