@@ -16,6 +16,7 @@ struct InappCell: View {
     var body: some View {
         VStack {
             Text(product.localizedTitle)
+          
             Text(displyPrice)
             Text(product.localizedDescription)
         }.onAppear(){

@@ -30,7 +30,7 @@ struct InappView: View {
             //Content
             VStack(){
                 
-                List(viewModel.userDat.products, id: \.productIdentifier){ item in
+                List(viewModel.userIAPData.products, id: \.productIdentifier){ item in
                     
                     Button {
                         //Action
@@ -41,6 +41,13 @@ struct InappView: View {
 
                     
                 }
+                
+                Button {
+                    tapOnRestore()
+                } label: {
+                    Text("Restore")
+                }
+                
                 
                 Button {
                     dismissView()
@@ -72,8 +79,8 @@ struct InappView: View {
         }
         .alert(alertMessage, isPresented: $showingAlertAction){
             
-            Button("Buy") {
-                tapOnBuy()
+            Button("OK") {
+                tapOnOK()
                 showingAlert = false
                 showingAlertAction = false
             }
@@ -97,10 +104,13 @@ struct InappView: View {
         viewModel.viewDidSetup()
     }
     
-    func tapOnBuy(){
+    func tapOnOK(){
         
     }
     
+    func tapOnRestore(){
+        viewModel.restorePurchases()
+    }
     // MARK: - Methods To Implement
     
     func showAlert(for product: SKProduct) {
@@ -142,11 +152,21 @@ extension InappView: InappViewModelDelegate {
     
     func didFinishRestoringPurchasesWithZeroProducts() {
 //        showSingleAlert(withMessage: "There are no purchased items to restore.")
+        
+        
+        let message = "There are no purchased items to restore."
+        
+        alertMessage = message
+        showingAlert = true
     }
     
     
     func didFinishRestoringPurchasedProducts() {
 //        showSingleAlert(withMessage: "All previous In-App Purchases have been restored!")
+        let message = "All previous In-App Purchases have been restored!"
+        
+        alertMessage = message
+        showingAlert = true
     }
 }
 

@@ -8,18 +8,28 @@
 import Foundation
 import StoreKit
 
-public typealias RUMEProductIdentifier = String
-public typealias RUMEProductRequestCompletionHandler = (_ success: Bool, _ products: [SKProduct]?) -> ()
+public typealias IAPProductIdentifier = String
+public typealias IAPProductRequestCompletionHandler = (_ success: Bool, _ products: [SKProduct]?) -> ()
+public typealias BuyProductRequestCompletionHandler = (_ success: Bool, _ transition: SKPaymentTransaction, _ error:Error?) -> ()
+public typealias RestoreProductRequestCompletionHandler = ( _ transitions: [SKPaymentTransaction]) -> ()
 
 // MARK: - Class
 
 public class IAPHelper: NSObject {
     
-    fileprivate let rumeProductIdentifiers: Set<RUMEProductIdentifier>
-    fileprivate var rumePurchasedProductIdentifiers = Set<RUMEProductIdentifier>()
+  
+    
+    fileprivate let rumeProductIdentifiers: Set<IAPProductIdentifier>
+    fileprivate var rumePurchasedProductIdentifiers = Set<IAPProductIdentifier>()
     
     fileprivate var rumeProductsRequest: SKProductsRequest?
-    fileprivate var rumeProductsRequestCompletionHandler: RUMEProductRequestCompletionHandler?
+    fileprivate var rumeProductsRequestCompletionHandler: IAPProductRequestCompletionHandler?
+    
+    
+    fileprivate var buyProductRequestCompletionHandler: BuyProductRequestCompletionHandler?
+
+    fileprivate var restoreProductRequestCompletionHandler:RestoreProductRequestCompletionHandler?
+    
     
     static let rumeIAPHelperPurchaseNotification = "IAPHelperPurchaseNotification"
     
@@ -28,26 +38,16 @@ public class IAPHelper: NSObject {
     
   
     
-    public init(productIDs: Set<RUMEProductIdentifier>) {
+    public init(productIDs: Set<IAPProductIdentifier>) {
         rumeProductIdentifiers = productIDs
         
-        // check ready buy
-        for productIdentifier in productIDs {
-            let purchased = UserDefaults.standard.bool(forKey: productIdentifier)
-            if purchased {
-                rumePurchasedProductIdentifiers.insert(productIdentifier)
-                print("Already purchased \(productIdentifier)")
-            } else {
-                print("Not yet purchased \(productIdentifier)")
-            }
-        }
-        
+
         super.init()
         
         SKPaymentQueue.default().add(self)
     }
     
-    public func requestProducts(completionHandler: @escaping RUMEProductRequestCompletionHandler) {
+    public func requestProducts(completionHandler: @escaping IAPProductRequestCompletionHandler) {
         rumeProductsRequest?.cancel()
         rumeProductsRequestCompletionHandler = completionHandler
         
@@ -56,12 +56,14 @@ public class IAPHelper: NSObject {
         rumeProductsRequest?.start()
     }
     
-    public func buyProduct(product: SKProduct) {
+    public func buyProduct(product: SKProduct, completionHandler: @escaping BuyProductRequestCompletionHandler) {
+        buyProductRequestCompletionHandler = completionHandler
+        
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(payment)
     }
     
-    public func isProductPurchased(productIdentifier: RUMEProductIdentifier) -> Bool {
+    public func isProductPurchased(productIdentifier: IAPProductIdentifier) -> Bool {
         return rumePurchasedProductIdentifiers.contains(productIdentifier)
     }
     
@@ -69,8 +71,12 @@ public class IAPHelper: NSObject {
         return SKPaymentQueue.canMakePayments()
     }
     
-    public func restorePurchases() {
+    public func restorePurchases(completionHandler: @escaping RestoreProductRequestCompletionHandler) {
+        restoreProductRequestCompletionHandler = completionHandler
+        
         SKPaymentQueue.default().restoreCompletedTransactions()
+        
+        
     }
     
 }
@@ -89,6 +95,9 @@ extension IAPHelper: SKProductsRequestDelegate {
             products = response.products
             // Implement your custom method here.
 //            displayStore(products)
+            for p in products {
+                print("Product (available): \(p.productIdentifier)")
+            }
         }
         
         
@@ -97,11 +106,6 @@ extension IAPHelper: SKProductsRequestDelegate {
             // Handle any invalid product identifiers as appropriate.
             print("invalidIdentifier: \(invalidIdentifier)")
         }
-        
-        
-        
-        
-        
         
         rumeProductsRequestCompletionHandler?(true, products)
         reset()
@@ -116,6 +120,10 @@ extension IAPHelper: SKProductsRequestDelegate {
     private func reset() {
         rumeProductsRequest = nil
         rumeProductsRequestCompletionHandler = nil
+        
+        buyProductRequestCompletionHandler = nil
+        restoreProductRequestCompletionHandler = nil
+        
     }
     
 }
@@ -145,17 +153,46 @@ extension IAPHelper: SKPaymentTransactionObserver {
         
     }
     
+    
+    public func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        
+        print("paymentQueueRestoreCompletedTransactionsFinished")
+        for transction in SKPaymentQueue.default().transactions {
+            print(transction.transactionIdentifier)
+            print(transction.payment.productIdentifier)
+        }
+        
+        UserIAPData.shared.handleRestore(transactions: SKPaymentQueue.default().transactions)
+        restoreProductRequestCompletionHandler?(SKPaymentQueue.default().transactions)
+        reset()
+    }
+    
+    
+    
     private func completeTransaction(transaction: SKPaymentTransaction) {
-        postPurchaseNotificationForIdentifier(identifier: transaction.payment.productIdentifier)
+        
+        //ซื้อสำเร็จ
+        
+        
+        UserIAPData.shared.handlePurchase(transaction: transaction)
+        buyProductRequestCompletionHandler?(true, transaction, nil)
+        
         SKPaymentQueue.default().finishTransaction(transaction)
+        reset()
+        
+        
+      
     }
     
     private func failedTransaction(transaction: SKPaymentTransaction) {
         if transaction.error!._code != SKError.Code.paymentCancelled.rawValue {
             print("Error: \(transaction.error?.localizedDescription)")
         }
-        
+
+        buyProductRequestCompletionHandler?(false, transaction, transaction.error)
         SKPaymentQueue.default().finishTransaction(transaction)
+        reset()
+        
     }
     
     private func restoreTransaction(transaction: SKPaymentTransaction) {
@@ -163,10 +200,16 @@ extension IAPHelper: SKPaymentTransactionObserver {
             return
         }
         
-        postPurchaseNotificationForIdentifier(identifier: productIdentifier)
+
+        UserIAPData.shared.handleRestore(transactions: [transaction])
+        buyProductRequestCompletionHandler?(true, transaction, nil)
+        
+        
         SKPaymentQueue.default().finishTransaction(transaction)
+        reset()
     }
     
+    /*
     private func postPurchaseNotificationForIdentifier(identifier: String?) {
         guard let identifier = identifier else {
             return
@@ -182,10 +225,11 @@ extension IAPHelper: SKPaymentTransactionObserver {
             
             rumePurchasedProductIdentifiers.insert(identifier)
             UserDefaults.standard.set(true, forKey: identifier)
+            UserDefaults.standard.synchronize()
         }
-        UserDefaults.standard.synchronize()
+       
         
         NotificationCenter.default.post(name: Notification.Name(IAPHelper.rumeIAPHelperPurchaseNotification), object: identifier)
-    }
+    }*/
     
 }

@@ -38,6 +38,7 @@
 		C11C6C8727FF03ED008ADCDC /* InappViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InappViewModel.swift; sourceTree = "<group>"; };
 		C11C6C8927FF0896008ADCDC /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C11C6C8B27FF08D8008ADCDC /* BlurBGView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBGView.swift; sourceTree = "<group>"; };
+		C14DAD9D2824E2D8009562A1 /* PickyGame2022Debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PickyGame2022Debug.entitlements; sourceTree = "<group>"; };
 		C197415F2802E487004FF30A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C19741622802E578004FF30A /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		C19741642802E6B4004FF30A /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		C11C6C6E27FEF22A008ADCDC /* PickyGame2022 */ = {
 			isa = PBXGroup;
 			children = (
+				C14DAD9D2824E2D8009562A1 /* PickyGame2022Debug.entitlements */,
 				C1C8D92E282127DC005CCE62 /* PickyGame2022Release.entitlements */,
 				C19741612802E4F6004FF30A /* IAP Classes */,
 				C1C8D92F28213AE4005CCE62 /* InappView */,
@@ -116,6 +118,7 @@
 		C19741612802E4F6004FF30A /* IAP Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C19741662802EC66004FF30A /* UserIAPData.swift */,
 				C19741622802E578004FF30A /* IAPHelper.swift */,
 				C19741642802E6B4004FF30A /* IAPProducts.swift */,
 			);
@@ -125,7 +128,6 @@
 		C1C8D92F28213AE4005CCE62 /* InappView */ = {
 			isa = PBXGroup;
 			children = (
-				C19741662802EC66004FF30A /* UserIAPData.swift */,
 				C11C6C7D27FEF27F008ADCDC /* InappView.swift */,
 				C197416928030B44004FF30A /* InappCell.swift */,
 				C11C6C8727FF03ED008ADCDC /* InappViewModel.swift */,
@@ -354,6 +356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PickyGame2022/PickyGame2022Debug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
@@ -373,7 +376,7 @@
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pucknavingame.PickyGame2022;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Game2022Dev;
+				PROVISIONING_PROFILE_SPECIFIER = PickyGame2022_B;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -386,8 +389,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PickyGame2022/PickyGame2022Release.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"PickyGame2022/Preview Content\"";
 				DEVELOPMENT_TEAM = 4836KR52L9;
@@ -405,7 +408,7 @@
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pucknavingame.PickyGame2022;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = AppStore_PickyGame2022_B;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -24,7 +24,7 @@ class InappViewModel {
     
     var delegate: InappViewModelDelegate?
     
-    let userDat = UserIAPData.shared
+    let userIAPData = UserIAPData.shared
     
     
     
@@ -34,12 +34,17 @@ class InappViewModel {
         if(product.productIdentifier.contains("g500")){
         
             print("Buy 500G")
+            
+        }else if(product.productIdentifier.contains("g1500")){
+            
+            print("Buy1 500G")
         }
 
         
         
         // Ask UI to be updated and reload the table view.
         delegate?.shouldUpdateUI()
+        delegate?.didFinishLongProcess()
     }
     
     
@@ -47,6 +52,7 @@ class InappViewModel {
      
 
         delegate?.shouldUpdateUI()
+        delegate?.didFinishLongProcess()
     }
     
     
@@ -55,10 +61,12 @@ class InappViewModel {
     func viewDidSetup() {
         delegate?.willStartLongProcess()
         
-        userDat.loadProducts {  [weak self] in
+        userIAPData.loadProducts {  [weak self] in
             
+         
             self?.delegate?.shouldUpdateUI()
             self?.delegate?.didFinishLongProcess()
+            
         }
       
     }
@@ -66,16 +74,38 @@ class InappViewModel {
   
     
     func purchase(product: SKProduct){
+        delegate?.willStartLongProcess()
         
-        IAPProducts.store.buyProduct(product: product)
+        print("click Buy: \(product.productIdentifier)")
+        if let store = IAPProducts.shared.store {
+            store.buyProduct(product: product) { [weak self](success, productIdentifier, error) in
+                if(success){
+                    self?.delegate?.shouldUpdateUI()
+                    self?.delegate?.didFinishLongProcess()
+                }else{
+                    self?.delegate?.didFinishLongProcess()
+                    if let e = error {
+                        self?.delegate?.showIAPRelatedError(e)
+                    }
+                    
+                }
+            }
+           
+        }
+        
       
     }
     
     
     func restorePurchases() {
-        delegate?.willStartLongProcess()
         
-        
+        if let store = IAPProducts.shared.store {
+            delegate?.willStartLongProcess()
+            store.restorePurchases { [weak self](transitions) in
+                self?.delegate?.shouldUpdateUI()
+                self?.delegate?.didFinishLongProcess()
+            }
+        }
     }
     
 }
